@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+    font-size: 70px;
+    color: #2f913a;
+    background-color: #d5d5d5;
+    letter-spacing: .05em;
+    text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2);
+    height: 120px;
+    padding-top: 40px;
+  }
+
+.container{
+    width: 100%;
+   
+}
+.row{
+    width: 100%;
+    margin: auto;
+}
+#ngan{
+    margin-left: 0px;
+}
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+   
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+

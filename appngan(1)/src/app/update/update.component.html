@@ -1,0 +1,41 @@
+<div id="updateform" class="modal">
+    
+  <form class="modal-content" action="create">
+    <span onclick="document.getElementById('updateform').style.display='none'" class="close" title="Close Modal">&times;</span>
+    <div class="container" >
+      <h1>Update Account</h1>
+      <p style="color: red;">{{results.message}}</p>
+      <hr>
+      <label for="id"><b>ID</b></label>
+      <input disabled [(ngModel)]="dataUser.id" *ngIf = "dataUser" type="text" name="id"  required>
+
+      <label for="username"><b>Username</b></label>
+      <input disabled [(ngModel)]="dataUser.username" type="text" name="username"  required>
+
+      <label for="password"><b>Password</b></label>
+      <input  [(ngModel)]="dataUser.password" type="password" name="password"  required>
+      
+      <label for="fullname"><b>Fullname</b></label>
+      <input  [(ngModel)]="dataUser.fullname" type="text" name="fullname"  required>
+
+      <label for="phone"><b>Phone</b></label>
+      <input [(ngModel)]="dataUser.phone" type="text" name="phone"  required>
+
+      <label for="address"><b>Address</b></label>
+      <input  [(ngModel)]="dataUser.address" type="text" name="address"  required> 
+
+      <label for="active"><b>Active</b></label>
+      <select [(ngModel)]="dataUser.active" name="active" size="1">
+        <option>0</option>
+        <option>1</option>
+      </select>
+
+      
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('updateform').style.display='none'" class="cancelbtn">Cancel</button>
+        <button (click)="sendValues()" type="submit" class="signupbtn" >Update</button>
+      </div>
+    </div>
+  </form>
+</div>

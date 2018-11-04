@@ -1,0 +1,69 @@
+<ng-error [errormessage]="error" *ngIf="error!=null" ></ng-error>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createquestjava">
+        <i class="ti-plus"></i> Create
+</button>
+<topic-create (reload)="getdata()"></topic-create>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Java Topic</h4>
+                    <p class="category">Here is a answer about your problem</p>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <td>STT</td>
+                                <td>Contend</td>
+                                <td>Answer</td>
+                                <td>Edit Topic</td>
+                                <td>Delete</td>
+                            </tr>
+                        </thead>                       
+                        <tbody *ngFor=" let item of showlistquestion; let i = index">
+                            <tr>
+                                   
+                                <td>{{i+1}}</td>
+                                <td>{{item.question}}</td>
+                                <td><button id="showanswer"   id="taoalo" style="width:100px !important" class="btn btn-info btn-fill"  (click)="Showanswer(item.id,isshowanswer)">Answer </button></td>
+                                <td><button   style="width:100px !important" class="btn btn-info btn-fill" (click)="EditTopic(item)"><i class="ti-pencil"></i> Edit </button></td>
+                                <td><button   style="width:100px !important" class="btn btn-info btn-fill" (click)="DeleteTopic(item)"><i class="ti-close"></i> Delete</button></td>
+                            </tr>
+                            <tr *ngIf="item.id == idItem  && isshowanswer && item.answer == null">
+                                
+                                <td colspan="4" >
+                                   
+                                </td>
+                                <td><button style="width:100px !important" class="btn btn-info btn-fill" data-toggle="modal" data-target="#createanswerjava" (click)="passidQuestion(item.id)"   ><i class="ti-plus" ></i> Create</button></td>
+                            </tr>
+                            <tr *ngIf="item.id == idItem  && isshowanswer && item.answer != null">
+                                <td style="width: 142px">Answer :</td>
+                                <td colspan="2" > {{item.answer}}</td>
+                                <td><button style="width:100px !important" class="btn btn-info btn-fill" data-toggle="modal" data-target="#editanswerjava"  (click)="editanswer(item)"><i class="ti-pencil"></i> Edit</button></td>
+                                <td><button style="width:100px !important" class="btn btn-info btn-fill" (click)="deteleanserjava(item.idanswer)"><i class="ti-close"></i> Delete</button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <topic-detail *ngIf="isshow" [topicdetail]="topicedit" (offshow)="turnoff($event)"> </topic-detail>
+
+        
+        <answer-create [idQuestion] = "idItem" (reload)="getdata()" ></answer-create>
+        <answer-edit [QandA] = "itemofQandA"></answer-edit>
+    </div>
+
+
+
+
+
+    
+        
+
+

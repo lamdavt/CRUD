@@ -1,0 +1,50 @@
+
+<div class="container">
+	<div class="row col-md-6 col-md-offset-2 custyle">
+		<a href="" id="managementuser"><h1>USER MANAGEMENT</h1></a>
+		<table class="table table-striped custab">
+			<thead>
+               
+                <button onclick="document.getElementById('id01').style.display='block'">Add new User</button>
+				<tr>
+					<th>STT</th>
+					<th>UserName</th>
+					<th>Active</th>
+					<th class="text-center">Action</th>
+				</tr>
+			</thead>
+			<tr *ngFor="let user of dataSource;let i = index"
+				[attr.data-index]="i">
+				<td>{{user.id}}</td>
+				<td>{{user.username}}</td>
+				<td><input *ngIf="user.active==0" type="checkbox" unchecked onclick="return false" >
+					<input *ngIf="user.active==1" type="checkbox" checked  onclick="return false"></td>
+
+				<td class="text-center"><a data-toggle="modal"
+					data-target="#myModal" (click)="getUserById(user.id)"
+					class='btn btn-info btn-xs'
+					style="background-color: rgb(44, 102, 44);"><span
+						class="glyphicon glyphicon-edit"></span> Detail</a> <a  onclick="document.getElementById('updateform').style.display='block'" (click)="getUserById(user.id)"
+					class='btn btn-info btn-xs'><span
+						class="glyphicon glyphicon-edit"></span><span > Edit</span></a>
+						
+						
+						<a *ngIf="user.active==0" style="pointer-events: all;" data-toggle="modal" data-target="#exampleModal" (click)="getUserById(user.id)" 
+						class="btn btn-danger btn-xs"><span
+							class="glyphicon glyphicon-remove"></span><span> Del</span></a>
+							<a *ngIf="user.active==1" style="pointer-events: none;" data-toggle="modal" data-target="#exampleModal" (click)="getUserById(user.id)" 
+							class="btn btn-danger btn-xs"><span
+								class="glyphicon glyphicon-remove"></span><span> Del</span></a></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<app-create (reload)="getUsers()"></app-create>
+
+
+	<!-- End Form confirm delete -->
+	
+<app-detail [dataUser]="dataUser"></app-detail>
+<app-update (reload)="getUsers()" [dataUser] = "dataUser"></app-update>
+<app-delete  (reload)="getUsers()" [dataUser] = "dataUser"></app-delete>
+<!-- Form confirm Delete -->

@@ -1,0 +1,25 @@
+       <div class="modal fade" id="createanswerjava" tabindex="-1" role="dialog" aria-labelledby="createanswerjavaModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="createanswerjavaModalLabel">Create Answer</h5>
+              
+               
+            </div>
+            <div class="modal-body">
+                   <div class="form-group" >
+
+                           <label>Your Answer: 
+                               <input  class="form-control border-input" [(ngModel)]="yourAnswer.answer" placeholder="Your Annswer"/>
+                           </label>                          
+                       </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" value="Save" class="btn btn-info btn-fill btn-wd" data-dismiss="modal" (click)="createAnswer()">Save</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+     
